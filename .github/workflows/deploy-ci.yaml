@@ -25,7 +25,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: new-dragon-artifact
-          path: artifacts/dragon.txt
+          path: dragon.txt
 
   test_job_2:
     name: Testing files produced in build_job_1
@@ -38,10 +38,10 @@ jobs:
         name: new-dragon-artifact
     
     - name: Print Artifact Details
-      run: cat artifacts/dragon.txt
+      run: cat dragon.txt
     
     - name: Verify file details
-      run: grep -i "dragon" artfiacts/dragon.txt
+      run: grep -i "dragon" dragon.txt
     
     - name: Print docker username
       run: echo  ${{env.CONTAINER_REGISTRY}}
