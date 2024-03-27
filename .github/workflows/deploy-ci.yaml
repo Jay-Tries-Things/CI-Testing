@@ -56,8 +56,8 @@ jobs:
       - name: Log into Docker
         run: echo docker login --username=${{vars.DOCKER_USERNAME}} --password=${{secrets.DOCKER_PASSWORD}}
       - name: Publish Docker Image
-        run: echo docker push ${{vars.CONTAINER_REGISTRY}}/${{vars.DOCKER_USERNAME}}/${{vars.IMAGE_NAME}}:latest
+        run: echo docker push ${{env.CONTAINER_REGISTRY}}/${{vars.DOCKER_USERNAME}}/${{vars.IMAGE_NAME}}:latest
       - name: Run the Docker image
-        run: echo docker run -d -p 8080:80 ${{vars.CONTAINER_REGISTRY}}/${{vars.DOCKER_USERNAME}}/${{vars.IMAGE_NAME}}:latest
+        run: echo docker run -d -p 8080:80 ${{env.CONTAINER_REGISTRY}}/${{vars.DOCKER_USERNAME}}/${{vars.IMAGE_NAME}}:latest
 
 
